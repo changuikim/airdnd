@@ -9,12 +9,13 @@ async function getRoomsList(id, fields) {
 
     // 메인 페이지 렌더링에 필요한 정보 조회시 캐싱을 하지 않습니다.
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/apis/fetchMainPage?id=${id}&${queryParams}`,
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/apis/fetchMainPage?id=${id}&${queryParams}`,
       {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
+
         // cache: 'no-store',
       },
     )

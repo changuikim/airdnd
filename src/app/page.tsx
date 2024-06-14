@@ -44,6 +44,7 @@ export default async function Home() {
         ))}
         <InfiniteScroll></InfiniteScroll>
       </div>
+      <div>메인</div>
     </div>
   )
 }

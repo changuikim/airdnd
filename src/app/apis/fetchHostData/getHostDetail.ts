@@ -9,7 +9,7 @@ async function getHostDetail(hostId, fields) {
 
     // 호스트 정보 조회시 캐싱을 하지 않습니다.
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/apis/fetchHostData?hostId=${hostId}&${queryParams}`,
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/apis/fetchHostData?hostId=${hostId}&${queryParams}`,
       {
         method: 'GET',
         headers: {

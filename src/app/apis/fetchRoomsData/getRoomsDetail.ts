@@ -8,7 +8,7 @@ async function getRoomsDetail(id, fields) {
     const queryParams = fields.map(field => `${field}=`).join('&')
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/apis/fetchRoomsData?id=${id}&${queryParams}`,
+      `${process.env.NEXT_PUBLIC_VERCEL_URL}/apis/fetchRoomsData?id=${id}&${queryParams}`,
       {
         method: 'GET',
         headers: {

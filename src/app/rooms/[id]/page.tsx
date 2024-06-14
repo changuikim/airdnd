@@ -14,6 +14,7 @@ function AccommodationPage({ params }) {
       <AmenityInfo id={id} />
       <DetailCalendar />
       <HostDetail id={id} />
+      <div>주석처리</div>
     </>
   )
 }
