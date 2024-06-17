@@ -15,7 +15,7 @@ async function getRoomsList(id, fields) {
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.JWT_TOKEN}`,
+          Accept: '*/*',
           Cookie: `_vercel_jwt=${process.env.JWT_TOKEN}`,
         },
 
