@@ -12,11 +12,11 @@ async function getRoomsList(id, fields) {
       `${process.env.API_URL}/apis/fetchMainPage?id=${id}&${queryParams}`,
       {
         method: 'GET',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
           Cookie: `_vercel_jwt=${process.env.JWT_TOKEN}`,
         },
-        credentials: 'include',
 
         // cache: 'no-store',
       },
