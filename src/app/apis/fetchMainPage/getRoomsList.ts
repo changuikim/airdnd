@@ -14,6 +14,7 @@ async function getRoomsList(id, fields) {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.JWT_TOKEN}`,
         },
 
         // cache: 'no-store',
