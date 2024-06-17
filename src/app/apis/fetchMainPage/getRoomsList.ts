@@ -21,9 +21,15 @@ async function getRoomsList(id, fields) {
     )
 
     if (!response.ok) {
-      throw new Error(
-        `메인 페이지 정보 조회 API에서 200 OK 응답을 받지 못했습니다. : ${response.statusText}`,
-      )
+      const errorText = `메인 페이지 정보 조회 API에서 200 OK 응답을 받지 못했습니다. 
+        상태 코드: ${response.status}, 
+        상태 텍스트: ${response.statusText}, 
+        URL: ${response.url}, 
+        Type: ${response.type}, 
+        Redirected: ${response.redirected}, 
+        Headers: ${response.headers}`;
+
+      throw new Error(errorText);
     }
 
     // 메인 페이지 렌더링에 필요한 정보를 역직렬화합니다.
