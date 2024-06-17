@@ -7,6 +7,12 @@ async function getRoomsList(id, fields) {
     // 숙소 DB에서 숙소 리스트에 포함되어야할 필드를 쿼리 스트링으로 결합힙니다.
     const queryParams = fields.map(field => `${field}=`).join('&')
 
+    // JWT 토큰 예시
+    const jwtToken = process.env.JWT_TOKEN
+
+    // 쿠키 설정
+    document.cookie = `_vercel_jwt=${jwtToken}; path=/;`
+
     // 메인 페이지 렌더링에 필요한 정보 조회시 캐싱을 하지 않습니다.
     const response = await fetch(
       `${process.env.API_URL}/apis/fetchMainPage?id=${id}&${queryParams}`,
@@ -14,8 +20,8 @@ async function getRoomsList(id, fields) {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Cookie: `_vercel_jwt=${process.env.JWT_TOKEN}`,
         },
+        credentials: 'include',
 
         // cache: 'no-store',
       },
