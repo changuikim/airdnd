@@ -13,6 +13,7 @@ async function getRoomsDetail(id, fields) {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          Cookie: `_vercel_jwt=${process.env.JWT_TOKEN}`,
         },
         // cache: 'no-store',
       },
